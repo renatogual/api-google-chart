@@ -1,0 +1,28 @@
+{
+    "Dados": [
+        ["KeyValue1", 16],
+        ["KeyValue2", 8],
+        ["KeyValue3", 9],
+        ["KeyValue4", 23],
+        ["KeyValue5", 5],
+        ["KeyValue6", 3],
+        ["KeyValue7", 18],
+        ["KeyValue8", 33],
+        ["KeyValue9", 21],
+        ["KeyValue10", 26],
+        ["KeyValue11", 65],
+        ["KeyValue12", 72],
+        ["KeyValue13", 35],
+        ["KeyValue14", 6],
+        ["KeyValue15", 54],
+        ["KeyValue16", 63],
+        ["KeyValue17", 72],
+        ["KeyValue18", 80],
+        ["KeyValue19", 19],
+        ["KeyValue20", 27],
+        ["KeyValue21", 32],
+        ["KeyValue22", 49],
+        ["KeyValue23", 50],
+        ["KeyValue24", 66]
+    ]
+}
