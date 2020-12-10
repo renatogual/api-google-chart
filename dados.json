@@ -29,7 +29,7 @@
         ["receptiva", "SEM TEXTO", 2],
         ["ativa", "Informações", 14],
         ["ativa", "Info. Chamado", 7],
-        ["ativa", "Info. Chamado", 2],
+        ["interna", "Info. Chamado", 2],
         ["receptiva", "SEM", 5],
         ["ativa", "Validação com cliente", 19]
     ]
