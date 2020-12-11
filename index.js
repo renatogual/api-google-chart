@@ -16,91 +16,11 @@ function dataTable(tipo) {
 
   // Create the data table.
   let dataTable = new google.visualization.DataTable();
-  dataTable.addColumn('string');
-  dataTable.addColumn('number');
-  dataTable.addRows(dataFormated);
+  dataTable.addColumn('string', 'Qualificação');
+  dataTable.addColumn('number', 'Quantidade');
+  dataTable.addRows(dataFormated); // Cada linha representa uma fatia ou uma barra dos gráficos de pizza e colunas
 
-  return dataTable
-}
-
-function pieChartActives(data) {
-  // Set Pie chart options
-  let piechart_options = {
-    'title': 'Ligações Ativas',
-    'is3D': true,
-    'width':900,
-    'height':500,
-  };
-
-  // Instantiate and draw our Pie chart, passing in some options.
-  let piechart_div_actives = document.getElementById('chart_pie_actives');
-  let piechart_actives = new google.visualization.PieChart(piechart_div_actives);
-  piechart_actives.draw(data, piechart_options);
-}
-
-function pieChartReceptives(data) {
-  // Set Pie chart options
-  let piechart_options = {
-    'title': 'Ligações Receptivas',
-    'is3D': true,
-    'width':900,
-    'height':500,
-  };
-
-  let piechart_div_receptives = document.getElementById('chart_pie_receptives');
-  let piechart_receptives = new google.visualization.PieChart(piechart_div_receptives);
-  piechart_receptives.draw(data, piechart_options);
-}
-
-function pieChartInternals(data) {
-  // Set Pie chart options
-  let piechart_options = {
-    'title': 'Ligações Internas',
-    'is3D': true,
-    'width':900,
-    'height':500,
-  };
-
-  let piechart_div_internals = document.getElementById('chart_pie_internals');
-  let piechart_internals = new google.visualization.PieChart(piechart_div_internals);
-  piechart_internals.draw(data, piechart_options);
-}
-
-function columnChartActives(data) {
-  // Set Column chart options
-  let columnchart_options = {
-    'width':900,
-    'height':500,
-  };
-
-  // Instantiate and draw our Pie chart, passing in some options.
-  let columnchart_div_actives = document.getElementById('chart_column_actives');
-  let columnchart_actives = new google.visualization.ColumnChart(columnchart_div_actives);
-  columnchart_actives.draw(data, columnchart_options);
-}
-
-function columnChartReceptives(data) {
-  // Set Column chart options
-  let columnchart_options = {
-    'width':900,
-    'height':500,
-  };
-
-  let columnchart_div_receptives = document.getElementById('chart_column_receptives');
-  let columnchart_receptives = new google.visualization.ColumnChart(columnchart_div_receptives);
-  columnchart_receptives.draw(data, columnchart_options);
-}
-
-function columnChartInternals(data) {
-  // Set Column chart options
-  let columnchart_options = {
-    'width':900,
-    'height':500,
-  };
-
-  let columnchart_div_internals = document.getElementById('chart_column_internals');
-  let columnchart_internals = new google.visualization.ColumnChart(columnchart_div_internals);
-  columnchart_internals.draw(data, columnchart_options);
+  return dataTable;
 }
 
 // Callback that creates and populates a data table,
@@ -108,32 +28,87 @@ function columnChartInternals(data) {
 // draws it.
 function drawChartActives() {
   let data = dataTable(dadosAtivas);
-  pieChartActives(data);
-  columnChartActives(data);
+
+  // Set Pie chart options
+  let piechart_actives_options = {
+    title: 'Pie Chart Actives',
+    width: 800,
+    height: 700,
+  }
+
+  let piechart_actives = new google.visualization.PieChart($('#chart_pie_actives')[0]);
+  piechart_actives.draw(data, piechart_actives_options);
+
+  // Set Column chart options
+  let columnchart_actives_options = {
+    'title': 'Column Chart Actives',
+    'width': 800,
+    'height': 700,
+  }
+
+  let columnchart_actives = new google.visualization.ColumnChart($('#chart_column_actives')[0]);
+  columnchart_actives.draw(data, columnchart_actives_options);
 }
 
 function drawChartReceptives() {
   let data = dataTable(dadosReceptivas);
-  pieChartReceptives(data);
-  columnChartReceptives(data);
+
+  let piechart_receptives_options = {
+    title: 'Pie Chart Receptives',
+    width: 800,
+    height: 700,
+  }
+  
+  let piechart_receptives = new google.visualization.PieChart($('#chart_pie_receptives')[0]);
+  piechart_receptives.draw(data, piechart_receptives_options);
+
+  let columnchart_receptives_options = {
+    'title': 'Column Chart Receptives',
+    'width': 800,
+    'height': 700,
+  }
+
+  let columnchart_receptives = new google.visualization.ColumnChart($('#chart_column_receptives')[0]);
+  columnchart_receptives.draw(data, columnchart_receptives_options);
 }
 
 function drawChartInternals() {
   let data = dataTable(dadosInternas);
-  pieChartInternals(data);
-  columnChartInternals(data);
+
+  let piechart_internals_options = {
+    title: 'Pie Chart Internals',
+    width: 800,
+    height: 700,
+  }
+  
+  let piechart_internals = new google.visualization.PieChart($('#chart_pie_internals')[0]);
+  piechart_internals.draw(data, piechart_internals_options);
+
+  let columnchart_internals_options = {
+    'title': 'Column Chart Internals',
+    'width': 800,
+    'height': 700,
+  }
+
+  let columnchart_internals = new google.visualization.ColumnChart($('#chart_column_internals')[0]);
+  columnchart_internals.draw(data, columnchart_internals_options);
 }
 
-$(document).ready(function(){
-  $('.tabs').tabs();
-  
+$(() => {
+  $('ul.tabs').tabs({
+    swipeable : true,
+  });
+
   getDados();
 
   // Load the Visualization API and the corechart package.
-  google.charts.load('current', {'packages':['corechart'], 'language': 'pt-br'});
+  google.charts.load('current', {'packages':['corechart'], 'language': 'pt-br'})
+    .then(drawChartActives)
+    .then(drawChartReceptives)
+    .then(drawChartInternals);
 
   // Set a callback to run when the Google Visualization API is loaded.
-  google.charts.setOnLoadCallback(drawChartActives);
-  google.charts.setOnLoadCallback(drawChartReceptives);
-  google.charts.setOnLoadCallback(drawChartInternals);
+  // google.charts.setOnLoadCallback(drawChartActives);
+  // google.charts.setOnLoadCallback(drawChartReceptives);
+  // google.charts.setOnLoadCallback(drawChartInternals);
 });
