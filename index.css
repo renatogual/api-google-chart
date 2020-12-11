@@ -8,16 +8,21 @@ html,body{
     height: 100%;
 }
 .container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid grey;
-    padding: 5px;
-    margin-top: 5px;
+    margin-top: 10px;
 }
-.flex{
+#chart_pie_actives,
+#chart_column_actives,
+#chart_pie_receptives,
+#chart_column_receptives,
+#chart_pie_internals,
+#chart_column_internals
+{
     display: flex;
-    flex-direction: column;
-    width: 100%;
+    justify-content: center;
+}
+.row{
+    height: 1500px;
+}
+.tabs-content.carousel.carousel-slider{
+    height: 100%;
 }

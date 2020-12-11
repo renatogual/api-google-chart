@@ -1,40 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="pt-br">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./materialize/css/materialize.min.css">
     <link rel="stylesheet" href="./index.css">
     <title>Gŕaficos</title>
-</head>
-<body>
-      <div class="container">
-        <div class="row flex">
-          <div class="col s12">
-            <ul class="tabs">
-              <li class="tab col s4"><a href="#active">Ativas</a></li>
-              <li class="tab col s4"><a href="#receptive">Receptivas</a></li>
-              <li class="tab col s4"><a href="#internal">Internas</a></li>
-            </ul>
-          </div>
-          <div id="active" class="col s12">
-            <div id="chart_pie_actives"></div>
-            <div id="chart_column_actives"></div>
-          </div>
-          <div id="receptive" class="col s12">
-            <div id="chart_pie_receptives"></div>
-            <div id="chart_column_receptives"></div>
-          </div>
-          <div id="internal" class="col s12">
-            <div id="chart_pie_internals"></div>
-            <div id="chart_column_internals"></div>
-          </div>
+  </head>
+  <body>
+    <div class="container z-depth-4">
+      <div class="row">
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s4"><a href="#active">Ativas</a></li>
+            <li class="tab col s4"><a href="#receptive">Receptivas</a></li>
+            <li class="tab col s4"><a href="#internal">Internas</a></li>
+          </ul>
         </div>
-        
+        <div id="active" class="col s12">
+          <div id="chart_pie_actives"></div>
+          <div id="chart_column_actives"></div>
+        </div>
+        <div id="receptive" class="col s12">
+          <div id="chart_pie_receptives"></div>
+          <div id="chart_column_receptives"></div>
+        </div>
+        <div id="internal" class="col s12">
+          <div id="chart_pie_internals"></div>
+          <div id="chart_column_internals"></div>
+        </div>
       </div>
-      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="./materialize/js/materialize.min.js"></script>
     <script src="./index.js"></script>
-</body>
+  </body>
 </html>
